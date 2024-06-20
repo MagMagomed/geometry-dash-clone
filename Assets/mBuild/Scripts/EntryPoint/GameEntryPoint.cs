@@ -22,7 +22,7 @@ namespace Assets.mBuild.Scripts.EntryPoint
             _coroutineManager = new GameObject("[COROUTINE_MANAGER]").AddComponent<CoroutineManager>();
             Object.DontDestroyOnLoad(_coroutineManager);
 
-            var prefabUIRootView = AssetDatabase.LoadAssetAtPath<UIRootView>("Assets/mBuild/Prefabs/Root/View/UIRoot.prefab");
+            var prefabUIRootView = AssetDatabase.LoadAssetAtPath<UIRootView>("Assets/mBuild/Prefabs/Root/Views/UIRoot.prefab");
             _UIRootView = Object.Instantiate(prefabUIRootView);
             Object.DontDestroyOnLoad(_UIRootView.gameObject);
         }
