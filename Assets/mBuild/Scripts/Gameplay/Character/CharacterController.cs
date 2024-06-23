@@ -14,21 +14,24 @@ namespace Assets.mBuild.Scripts.Gameplay.Character
     public class CharacterController : MonoBehaviour, IControllable
     {
         [SerializeField] private float m_speed;
+        [SerializeField] private float m_rotationSmooth;
         private MovementStateMachine m_movementStateMachine;
-        private Transform m_transform;
+        private RotationStateMachine m_rotationStateMachine;
 
         public void ToggleMovementDirection()
         {
             m_movementStateMachine.ToggleMovementDirection();
+            m_rotationStateMachine.ToggleRotationDirection();
         }
         private void FixedUpdate()
         {
             m_movementStateMachine.Update();
+            m_rotationStateMachine.Update();
         }
         private void Awake()
         {
-            m_transform = gameObject.transform;
-            m_movementStateMachine = new MovementStateMachine(m_transform, m_speed);
+            m_movementStateMachine = new MovementStateMachine(gameObject.transform, m_speed);
+            m_rotationStateMachine = new RotationStateMachine(gameObject.transform, m_rotationSmooth);
         }
     }
 }

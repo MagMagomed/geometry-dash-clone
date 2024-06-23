@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TreeEditor;
+using UnityEngine;
 
 namespace Assets.mBuild.Scripts.Gameplay.Character.States
 {
@@ -11,10 +12,13 @@ namespace Assets.mBuild.Scripts.Gameplay.Character.States
             m_targetTransform = transform;
             m_targetSpeed = speed;
         }
-
         public override void Update()
         {
             base.Update();
+            SetPosition();
+        }
+        private void SetPosition()
+        {
             m_targetTransform.position += Vector3.down * m_targetSpeed * Time.deltaTime;
         }
     }
