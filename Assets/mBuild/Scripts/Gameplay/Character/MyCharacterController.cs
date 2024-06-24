@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Assets.mBuild.Scripts.Gameplay.Character
 {
-    public class CharacterController : MonoBehaviour, IControllable
+    public class MyCharacterController : MonoBehaviour, IControllable
     {
         [SerializeField] private float m_speed;
         [SerializeField] private float m_rotationSmooth;
